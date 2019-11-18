@@ -1,6 +1,7 @@
 function solve(str) {
   let string = str.split("");
-  return string.reverse();
+  //reverse and join letters back
+  return string.reverse().join("");
 }
 
 let test = solve("our code");
