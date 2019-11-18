@@ -1,14 +1,13 @@
 function sumOfDifferences(arr) {
   if (arr === null) return;
-  arr = arr.sort(function(a, b) {
-    return b - a;
+  arr.sort(function(a, b) {
+    return a - b;
   });
-  let sumArray = [];
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 1; j < arr.length; j++) {
-      return (sumArray = arr[i] - arr[j] + (arr[j] - 1));
-    }
+  let sumArray = 0;
+  for (let i = arr.length - 1; i > 0; i--) {
+    sumArray += arr[i] - arr[i - 1];
   }
+  return sumArray;
 }
 
 let test = sumOfDifferences([2, 1, 10]);
@@ -18,7 +17,7 @@ console.log(test);
 /*
 
 function sumOfDifferences(arr) {
-  arr.length <= 1 ? 0 : Math.max(...arr) - Math.min(...arr);
+  return arr.length <= 1 ? 0 : Math.max(...arr) - Math.min(...arr);
  }
  
  */
