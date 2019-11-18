@@ -1,23 +1,10 @@
-function solve(str) {
-  let string = str
-    .split(" ")
-    .join("")
-    .split("");
-  let words = str.split(" ");
-  // Get the length of each words in the array
-  let eachWordLength = [];
-  for (let i = 0; i < words.length; i++) {
-    eachWordLength.push(words[i].length);
+function sumOfDifferences(arr) {
+  let sumArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    sumArray += arr[i] - arr[i + 1];
   }
-  // Reverse the input string
-  let reverseString = string.reverse();
-  let newWords = [];
-  for (let i = 0; i < reverseString.length; i++) {
-    newWords += reverseString[i];
-  }
-
-  return newWords;
+  return sumArray;
 }
 
-let test = solve("your code rocks");
+let test = sumOfDifferences([2, 1, 10]);
 console.log(test);
