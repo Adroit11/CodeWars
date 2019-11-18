@@ -1,9 +1,17 @@
 function sumOfDifferences(arr) {
+  if (arr === null) return;
+  arr = arr.sort(function(a, b) {
+    return b - a;
+  });
   let sumArray = [];
+  arr.forEach((val, index) => {
+    sumArray += val;
+  });
   for (let i = 0; i < arr.length; i++) {
-    sumArray += arr[i] - arr[i + 1];
+    for (let j = 1; j < arr.length; j++) {
+      return (sumArray += arr[i] - arr[j] + (arr[j] - 1));
+    }
   }
-  return sumArray;
 }
 
 let test = sumOfDifferences([2, 1, 10]);
