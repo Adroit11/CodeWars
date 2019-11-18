@@ -3,6 +3,7 @@ function twoSum(numbers, target) {
   numbers.forEach((val, index) => (indexes[val] = index));
   for (let i = 0; i < numbers.length; i++) {
     if (indexes[target - numbers[i]]) {
+      // return the index as an array
       return [indexes[target - numbers[i]], i];
     }
   }
