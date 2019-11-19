@@ -7,7 +7,7 @@ between words.
 // complete the function
 function solution(string) {
   let letters = string.split("");
-  let res;
+  let res = [];
   letters.forEach((letter, index) => {
     if (letter === letters[index].toUpperCase()) {
       res += " ";
