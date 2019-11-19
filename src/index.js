@@ -1,35 +1,18 @@
 /*
-Given a string of words, you need to find the highest scoring word.
+Your job is to write a function which increments a string, to create a new string.
 
-Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+If the string already ends with a number, the number should be incremented by 1.
+If the string does not end with a number. the number 1 should be appended to the new string. 
+*/
+function incrementString(strng) {
+  let lastChar = strng.charAt(strng.length - 1);
+  let lastCharInt = parseInt(lastChar, 10);
+  return isNaN(lastCharInt)
+    ? strng + 1
+    : strng.slice(0, -1) + (lastCharInt + 1);
 
-You need to return the highest scoring word as a string.
-
-If two words score the same, return the word that appears earliest in the original string.
-
-All letters will be lowercase and all inputs will be valid.*/
-function high(x) {
-  const alphabets = "abcdefghijklmnopqrstuvwxyz";
-  const sentence = x.split(" ");
-  let highestScore = 0;
-  let highestScoreWordIndex = 0;
-  let scoreStack = sentence.map(score => {
-    let aplhabetBank = score.split("");
-    return aplhabetBank.reduce(
-      (lastScore, inWord) => lastScore + alphabets.indexOf(inWord),
-      0
-    );
-  });
-  scoreStack.forEach((value, index) => {
-    if (value > highestScore) {
-      highestScore = value;
-      highestScoreWordIndex = index;
-      console.log(highestScoreWordIndex);
-    }
-  });
-  return sentence[highestScoreWordIndex];
-  //console.log(highestScoreWordIndex);
+  // return incrementedString
 }
 
-let test = high("man i need a taxi up to ubud");
+let test = incrementString("foobar000");
 console.log(test);
