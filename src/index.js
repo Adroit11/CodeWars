@@ -5,14 +5,27 @@ If the string already ends with a number, the number should be incremented by 1.
 If the string does not end with a number. the number 1 should be appended to the new string. 
 */
 function incrementString(strng) {
-  let lastChar = strng.charAt(strng.length - 1);
-  let lastCharInt = parseInt(lastChar, 10);
-  return isNaN(lastCharInt)
-    ? strng + 1
-    : strng.slice(0, -1) + (lastCharInt + 1);
-
+  if (isNaN(strng.slice(-1))) {
+    return `${strng}1`;
+  } else {
+    let chars = strng
+      .split("")
+      .filter(n => isNaN(n))
+      .join("");
+    let nums = strng
+      .split("")
+      .filter(n => !isNaN(n))
+      .join("");
+    let incrementedNumber = +nums + 1;
+    if (nums.length > incrementedNumber.toString().length) {
+      let zeros = "";
+      for (let i = 0; i < nums.length; i++) {
+        zeros += "0";
+      }
+      return chars + (zeros + incrementedNumber).slice(-nums.length);
+    } else {
+      return chars + incrementedNumber;
+    }
+  }
   // return incrementedString
 }
-
-let test = incrementString("foobar000");
-console.log(test);
