@@ -1,23 +1,21 @@
-function sumOfDifferences(arr) {
-  if (arr === null) return;
-  arr.sort(function(a, b) {
-    return a - b;
+/* 
+Complete the solution so that the function 
+will break up camel casing, using a space 
+between words.
+*/
+
+// complete the function
+function solution(string) {
+  let letters = string.split("");
+  let res;
+  letters.forEach((letter, index) => {
+    if (letter === letters[index].toUpperCase()) {
+      res += " ";
+    }
+    res += letter;
   });
-  let sumArray = 0;
-  for (let i = arr.length - 1; i > 0; i--) {
-    sumArray += arr[i] - arr[i - 1];
-  }
-  return sumArray;
+  return res;
 }
 
-let test = sumOfDifferences([2, 1, 10]);
+let test = solution("camelCasing");
 console.log(test);
-
-/* Best solutions that passed */
-/*
-
-function sumOfDifferences(arr) {
-  return arr.length <= 1 ? 0 : Math.max(...arr) - Math.min(...arr);
- }
- 
- */
