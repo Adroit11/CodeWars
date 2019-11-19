@@ -29,3 +29,6 @@ function incrementString(strng) {
   }
   // return incrementedString
 }
+
+let test = incrementString("foobar");
+console.log(test);
