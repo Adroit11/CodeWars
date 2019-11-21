@@ -22,4 +22,4 @@ var lastDigit = function(str1, str2) {
   return Math.pow(str1[str1_length - 1] - "0", exponential) % 10;
 };
 
-console.log(lastDigit("3", "1100081"));
+console.log(lastDigit("8", "1100081"));
