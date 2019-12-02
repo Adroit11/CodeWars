@@ -1,6 +1,6 @@
 function sortme(names){
   return names.sort(function(a, b) {
-    return a - b;
+    return a.toLowerCase().localeCompare(b.toLowerCase());
   });
 }
 
