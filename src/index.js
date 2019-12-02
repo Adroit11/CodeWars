@@ -1,9 +1,7 @@
-const names =
-  "asdfnhdkjashkjfhidjashudijshfjhdujdshjsdhjfhjkdfhsgsjdfghjsggdfgkklhjfdfghjkgfdfgjkhhdffghfg";
-const nameArray = names.split("");
-var len = nameArray.length;
-console.time();
-while (len--) {
-  console.log(nameArray[len]);
+function sortme(names){
+  return names.sort(function(a, b) {
+    return a - b;
+  });
 }
-console.timeEnd();
+
+console.log(sortme(["ade", "abe", "f", "b"]));
