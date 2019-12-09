@@ -1,24 +1,16 @@
-//RGB To Hex Conversion
+//Sum String as numbers
 
-function rgb(r, g, b) {
-  // complete this function
-  let hexR =
-    r < 0 ? "0" : r > 255 ? Number(255).toString(16) : Number(r).toString(16);
-  let hexG =
-    g < 0 ? "0" : g > 255 ? Number(255).toString(16) : Number(g).toString(16);
-  let hexB =
-    b < 0 ? "0" : b > 255 ? Number(255).toString(16) : Number(b).toString(16);
-  if (hexR.length < 2) {
-    hexR = "0" + hexR;
+function sumStrings(a, b) {
+  var res = '', c = 0;
+  a = a.split('');
+  b = b.split('');
+  while (a.length || b.length || c) {
+    c += ~~a.pop() + ~~b.pop();
+    res = c % 10 + res;
+    c = c > 9;
   }
-  if (hexG.length < 2) {
-    hexG = "0" + hexG;
-  }
-  if (hexB.length < 2) {
-    hexB = "0" + hexB;
-  }
-  return hexR.concat(hexG, hexB).toUpperCase();
+  return res.replace(/^0+/, '');
 }
 
-let test = rgb(253, 300, -20);
-console.log(test);
+let test = sumStrings('15','16')
+console.log(test)
