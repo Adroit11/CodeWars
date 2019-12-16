@@ -1,16 +1,11 @@
-//Sum String as numbers
-
-function sumStrings(a, b) {
-  var res = '', c = 0;
-  a = a.split('');
-  b = b.split('');
-  while (a.length || b.length || c) {
-    c += ~~a.pop() + ~~b.pop();
-    res = c % 10 + res;
-    c = c > 9;
+// String repeat
+function repeatStr(n, s) {
+  let newString = "";
+  for (let i = 0; i < n; i++) {
+    newString += s;
   }
-  return res.replace(/^0+/, '');
+  return newString;
 }
 
-let test = sumStrings('15','16')
-console.log(test)
+let test = repeatStr(5, "Ade");
+console.log(test);
